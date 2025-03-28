@@ -161,6 +161,20 @@ public class Weapon : MonoBehaviour
         nextShotTime = Time.time + def.delayBetweenShots;                    // p
         return (p);
     }
+
+     // New Coroutine for Timed Power-Up Activation
+    IEnumerator ActivateMissileLauncher(float duration)
+    {
+        SetType(eWeaponType.missile); // Activate the missile launcher
+        yield return new WaitForSeconds(duration); // Wait for the duration
+        SetType(eWeaponType.none); // Deactivate the missile launcher
+    }
+
+    // Method to Trigger the Missile Launcher Power-Up
+    public void OnMissileLauncherPowerUpCollected()
+    {
+        StartCoroutine(ActivateMissileLauncher(10f)); // 10-second power-up
+    }
 }
 
 

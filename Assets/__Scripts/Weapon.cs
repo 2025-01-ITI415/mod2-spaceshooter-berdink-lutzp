@@ -64,8 +64,11 @@ public class Weapon : MonoBehaviour
     private GameObject weaponModel;
     private Transform shotPointTrans;
 
+    
+
     void Start()
     {
+       
         // Set up PROJECTILE_ANCHOR if it has not already been done
         if (PROJECTILE_ANCHOR == null)
         {                                       // b
@@ -162,6 +165,7 @@ public class Weapon : MonoBehaviour
         return (p);
     }
 
+    
      // New Coroutine for Timed Power-Up Activation
     IEnumerator ActivateMissileLauncher(float duration)
     {
